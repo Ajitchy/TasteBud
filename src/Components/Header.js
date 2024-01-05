@@ -80,10 +80,10 @@ export default function Header() {
                         <item.icon className="h-6 w-6 text-gray-600 group-hover:text-red-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold text-gray-900">
+                        <Link to={item.href} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -105,15 +105,15 @@ export default function Header() {
             </Transition>
           </Popover>
 
-          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
             Categories
-          </a>
-          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+          </Link>
+          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
             Menu
-          </a>
-          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+          </Link>
+          <Link to="/about" className="text-sm font-semibold leading-6 text-gray-900">
             About
-          </a>
+          </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end mr-8">
           <button
@@ -189,7 +189,7 @@ export default function Header() {
                   Menu
                 </a>
                 <a
-                  href="/"
+                  href="/about"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   About
@@ -207,7 +207,7 @@ export default function Header() {
                 )}
               </button>
               <div className="py-6">
-                <button
+                <button onClick={() => navigate('/login')}
                   className="bg-red-custom hover:bg-red-700 text-white font-semibold py-2.5 px-3 block rounded-lg -mx-3"
                 >
                   Log In
