@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         'red-custom': '#F54748',
+        'red-light': '#FF8385',
         'lavenderblush-custom': '#FFF0F1',
       },
       textColor: {
