@@ -8,9 +8,16 @@ import FastDelivery from '../Images/fast-delivery.png';
 import COD from '../Images/cash-on-delivery.png';
 import home from '../Images/home.png';
 import shipped from '../Images/shipped.png';
+import Burger from '../Images/Burger.jpg';
+import Star from './Star';
 
 
 function Home() {
+
+  const stars = 4.5;
+
+
+
   return (
     <div className="min-h-screen">
       <main className="bg-red-light rounded-3xl px-0 mx-2 sm:mx-7 sm:px-8">
@@ -60,8 +67,8 @@ function Home() {
       </main>
 
       {/* CARD SECTION */}
-      <section className="grid grid-cols-2 gap-2 mt-6 mx-auto sm:max-w-sm sm:w-full lg:max-w-full md:flex md:-mt-20 justify-items-center">
-        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-56 md:mb-0 lg:w-52 lg:mb-0 lg:mr-4 border-2 border-red-600 overflow-hidden">
+      <section className="grid grid-cols-2 gap-2 mt-6 mx-auto sm:max-w-sm sm:w-full lg:max-w-full md:justify-center md:flex md:-mt-14 justify-items-center">
+        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-full md:mb-0 lg:w-52 border-2 border-red-600 overflow-hidden">
           <img className="text-gray-500 w-12 h-12 m-3"
             src={FastDelivery}
             alt="delivery icon"
@@ -74,7 +81,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-48 md:mb-0 lg:w-56 lg:mb-0 lg:mr-4 border-2 border-red-600 overflow-hidden">
+        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-full lg:w-56 border-2 border-red-600 overflow-hidden">
           <img className="text-gray-500 w-12 h-12 m-3"
             src={COD}
             alt="delivery icon"
@@ -87,7 +94,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-48 md:mb-0 lg:w-56 lg:mb-0 lg:mr-4 border-2 border-red-600 overflow-hidden">
+        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-full md:mb-0 lg:w-56 border-2 border-red-600 overflow-hidden">
           <img className="text-gray-500 w-12 h-12 m-3"
             src={home}
             alt="delivery icon"
@@ -100,7 +107,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-48 md:mb-0 lg:w-56 lg:mb-0 lg:mr-4 border-2 border-red-600 overflow-hidden">
+        <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-full md:mb-0 lg:w-56 border-2 border-red-600 overflow-hidden">
           <img className="text-gray-500 w-12 h-12 m-3"
             src={shipped}
             alt="delivery icon"
@@ -114,7 +121,113 @@ function Home() {
         </div>
 
       </section>
-    </div>
+
+      {/* CATEGORY SECTION */}
+      <div className="mt-8 ml-20">
+        <div className="lg:flex lg:items-center lg:justify-between">
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">Our Popular Categories</h2>
+          </div>
+          <div className="mt-5 flex lg:ml-4 lg:mt-0">
+            <span className="sm:ml-3 mr-20">
+              <button type="button" className="inline-flex items-center rounded-md bg-red-custom px-5 py-2 w-23 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                View All
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 justify-center">
+        <div className="flex flex-row rounded-lg shadow-md w-52 h-20 m-6 p-5 border border-red-600 overflow-hidden items-center justify-center">
+          <span className="bg-white w-12 h-12 mr-6 rounded-xl">
+            <img
+              className="w-8 h-8 m-2"
+              src={Burger}
+              alt="burger"
+            />
+          </span>
+          <p className="text-xl font-semibold text-gray-500">Burger</p>
+        </div>
+        <div className="flex flex-row rounded-lg shadow-md w-52 h-20 m-6 p-5 border border-red-600 bg-red-custom overflow-hidden items-center justify-center">
+          <span className="bg-white w-12 h-12 mr-6 rounded-xl">
+            <img
+              className="w-8 h-8 m-2"
+              src={Burger}
+              alt="burger"
+            />
+          </span>
+          <p className="text-xl font-semibold text-white">Burger</p>
+        </div>
+      </div>
+
+      {/* Popular Menu Section */}
+
+      <div className="mt-8 ml-20">
+        <div className="lg:flex lg:items-center lg:justify-between">
+          <div className="min-w-0 flex-1">
+            <h2 className="text-3xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">Our Popular Menu</h2>
+          </div>
+          <div className="mt-5 flex lg:ml-4 lg:mt-0">
+            <span className="sm:ml-3 mr-20 hidden md:hidden lg:inline-flex">
+              <button type="button" className="inline-flex items-center rounded-md bg-red-custom px-5 py-2 w-23 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+                View All
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div className="overflow-x-scroll sm:overflow-visible flex md:overflow-x-auto lg:overflow-visible md:grid md:grid-cols-2 md:space-x-0 lg:grid-cols-4 gap-4 justify-center">
+          <div className="flex flex-col rounded-lg shadow-lg w-64 md:w-80 sm:w-52 m-4 p-5 border-2 border-red-600 bg-white overflow-hidden items-center justify-center">
+            <span className="bg-white w-64 h-56 m-3 rounded-xl border-2 border-red-custom">
+              <img
+                className="w-52 h-44 items-center justify-center m-4"
+                src={Burger}
+                alt="burger"
+              />
+            </span>
+            <span className="flex flex-row justify-between w-full">
+              <h2 className="text-xl font-bold text-black">Burger</h2>
+              <h2 className="text-xl font-bold">Rs 50</h2>
+            </span>
+            <p className="p-2">Lorem ipsum dolor sit amet, conse adipisicing slit.</p>
+            <span className="flex flex-col justify-between w-full">
+              <button className="bg-red-custom hover:bg-red-400 text-white font semibold py-2 px-6 m-1 inline-flexrounded-xl w-36">
+                Add to Cart
+              </button>
+              <div className="flex justify-end -mt-6">
+                <Star stars={stars} />
+              </div>
+            </span>
+          </div>
+
+          <div className="flex flex-col rounded-lg shadow-lg w-64 md:w-80 sm:w-52 m-4 p-5 border-2 border-red-600 bg-white overflow-hidden items-center justify-center">
+            <span className="bg-white w-64 h-56 m-3 rounded-xl border-2 border-red-custom">
+              <img
+                className="w-52 h-44 items-center justify-center m-4"
+                src={Burger}
+                alt="burger"
+              />
+            </span>
+            <span className="flex flex-row justify-between w-full">
+              <h2 className="text-xl font-bold text-black">Burger</h2>
+              <h2 className="text-xl font-bold">Rs 50</h2>
+            </span>
+            <p className="p-2">Lorem ipsum dolor sit amet, conse adipisicing slit.</p>
+            <span className="flex flex-col justify-between w-full">
+              <button className="bg-red-custom hover:bg-red-400 text-white font semibold py-2 px-6 m-1 inline-flexrounded-xl w-36">
+                Add to Cart
+              </button>
+              <div className="flex justify-end -mt-6">
+                <Star stars={stars} />
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+    </div >
   )
 }
 
