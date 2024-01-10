@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Man1 from '../Images/Man1.jpg';
 import Woman1 from '../Images/Woman1.jpg';
 import Man2 from '../Images/Man2.jpg';
@@ -15,8 +15,14 @@ import Star from './Star';
 function Home() {
 
   const stars = 4.5;
+  const [selectedCard, setSelectedCard] = useState(0);
+  const people = [
+    { name: "John Doe", image: Man1, designation: 'Software Engineer', workplace: 'Google', review: "The food of the place is really awesome" },
+    { name: "John Doe", image: Man1, designation: 'Software Engineer', workplace: 'Google', review: "The food of the place is really awesome" },
+    { name: "John Doe", image: Man1, designation: 'Software Engineer', workplace: 'Google', review: "The food of the place is really awesome" },
+    { name: "John Doe", image: Man1, designation: 'Software Engineer', workplace: 'Google', review: "The food of the place is really awesome" },
 
-
+  ];
 
   return (
     <div className="min-h-screen">
@@ -222,6 +228,62 @@ function Home() {
                 <Star stars={stars} />
               </div>
             </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Customer Review Section */}
+
+      <div className="mt-8 ml-20">
+        <div className="lg:flex lg:items-center lg:justify-between">
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">Our Customer Review</h2>
+          </div>
+          <div className="mt-5 flex lg:ml-4 lg:mt-0">
+            <span className="sm:ml-3 mr-20">
+              <button type="button" className="inline-flex items-center rounded-md bg-red-custom px-5 py-2 w-24 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500">
+                View All
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="mt-8 ml-20 lg:flex">
+        <div className="lg:w-1/2">
+          <div className="grid gap-4">
+            {people.map((person, i) => (
+              <div
+                key={i}
+                className={`flex items-center space-x-4 p-3 w-96 rounded-lg border-2 border-red-500 shadow cursor-pointer ${selectedCard === i ? 'vg-red-custom text-white' : 'bg-lavenderblush-custom'}`}
+                onClick={() => setSelectedCard(i)}
+              >
+                <img src={person.image} alt="Profile" className="w-12 h-12 rounded-md" />
+                <div>
+                  <div className="text-lg font-semibold">{person.name}</div>
+                  <div className={`text-sm ${selectedCard === i ? 'text-white' : 'text-gray-500'}`}>{person.designation}, {person.workplace}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="hidden lg:block lg:col-span-1 mr-16 ml-16">
+          {people.map((_, i) => (
+            <div key={i} className={`h-1/4 border-1-4 ${selectedCard === i ? 'border-red-500' : 'border-white'} rounded`}></div>
+          ))}
+        </div>
+        <div className="mt-10 lg:mt-0 lg:w-1/2 lg:ml-8">
+          <div className="mt-0">
+            {selectedCard !== null && (
+              <>
+                <div className="border-l-4 border-red-500 ml-1 pl-10 rounded h-20">
+                  <h3 className="text-xl font-bold">{people[selectedCard].name}</h3>
+                  <p className="text-sm text-gray-500">{people[selectedCard].designation}, {people[selectedCard].workplace}</p>
+                </div>
+                <div className="border-t-4 border-white ml-1 m-6 rounded w-96">
+                  <p className="mt-2 p-2">{people[selectedCard].review}</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
