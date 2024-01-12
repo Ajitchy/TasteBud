@@ -1,0 +1,121 @@
+{
+    "menu": [
+        {
+            "category": "Beverages",
+            "image": "src/Images/Burger.jpg",
+            "foods": [
+                {
+                    "foodId": 1,
+                    "name": "Coffee",
+                    "image": "src/Images/Burger.jpg",
+                    "description": "Hot brewed coffee",
+                    "price": "$3",
+                    "reviews": [
+                        {
+                            "userId": 1,
+                            "rating": 5,
+                            "comment": "Delicious!"
+                        },
+                        {
+                            "userId": 2,
+                            "rating": 4,
+                            "comment": "Could be hotter."
+                        }
+                    ]
+                },
+                {
+                    "foodId": 2,
+                    "name": "Tea",
+                    "image": "src/Images/Burger.jpg",
+                    "description": "A nice cup of tea",
+                    "price": "$2",
+                    "reviews": [
+                        {
+                            "userId": 3,
+                            "rating": 3,
+                            "comment": "Not bad for a cheap drink"
+                        },
+                        {
+                            "userId": 1,
+                            "rating": 1,
+                            "comment": "Tasted like dish soap."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Desserts",
+            "image": "src/Images/Burger.jpg",
+            "foods": [
+                {
+                    "foodId": 1,
+                    "name": "Cheesecake",
+                    "image": "src/Images/Burger.jpg",
+                    "description": "A rich and creamy cheesecake.",
+                    "price": "$8",
+                    "reviews": [
+                        {
+                            "userId": 5,
+                            "rating": 5,
+                            "comment": "Best cheesecake I've ever had!"
+                        },
+                        {
+                            "userId": 4,
+                            "rating": 1,
+                            "comment": "Way too sweet."
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "user": [
+        {
+            "userId": 1,
+            "username": "JohnDoe",
+            "password": "Password123!",
+            "gender": "Female",
+            "dateOfBirth": "1996-01-01",
+            "email": "john@doe.com",
+            "mobileNumber": "(123) 456-7890",
+            "pincode": 203001,
+            "city": "Noida",
+            "state": "Uttar Pradesh",
+            "country": "India",
+            "address": "123 Main St.\nAnytown, USA\n12,345",
+            "profileImage": "Profile_Pic.png",
+            "cart": [
+                {
+                    "foodId": 1,
+                    "quantity": "2"
+                },
+                {
+                    "foodId": 3,
+                    "quantity": "1"
+                }
+            ],
+            "orders": [
+                {
+                    "orderId": 1,
+                    "totalAmount": "$15.00",
+                    "orderedOn": "2021-01-01",
+                    "items": [
+                        {
+                            "foodId": 1,
+                            "name": "Veg Burger",
+                            "price": "$5.00",
+                            "quantity": "1"
+                        },
+                        {
+                            "foodId": 2,
+                            "name": "Chicken Biryani",
+                            "price": "$10.00",
+                            "quantity": "2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

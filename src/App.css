@@ -32,10 +32,23 @@ body {
   color: #61dafb;
 }
 
+/* card style */
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* card style end */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
