@@ -9,7 +9,7 @@
                     "name": "Coffee",
                     "image": "src/Images/Burger.jpg",
                     "description": "Hot brewed coffee",
-                    "price": "$3",
+                    "price": "Rs3",
                     "reviews": [
                         {
                             "userId": 1,
@@ -28,7 +28,7 @@
                     "name": "Tea",
                     "image": "src/Images/Burger.jpg",
                     "description": "A nice cup of tea",
-                    "price": "$2",
+                    "price": "Rs2",
                     "reviews": [
                         {
                             "userId": 3,
@@ -53,7 +53,7 @@
                     "name": "Cheesecake",
                     "image": "src/Images/Burger.jpg",
                     "description": "A rich and creamy cheesecake.",
-                    "price": "$8",
+                    "price": "Rs8",
                     "reviews": [
                         {
                             "userId": 5,
@@ -98,19 +98,19 @@
             "orders": [
                 {
                     "orderId": 1,
-                    "totalAmount": "$15.00",
+                    "totalAmount": "Rs15.00",
                     "orderedOn": "2021-01-01",
                     "items": [
                         {
                             "foodId": 1,
                             "name": "Veg Burger",
-                            "price": "$5.00",
+                            "price": "Rs5.00",
                             "quantity": "1"
                         },
                         {
                             "foodId": 2,
                             "name": "Chicken Biryani",
-                            "price": "$10.00",
+                            "price": "Rs10.00",
                             "quantity": "2"
                         }
                     ]

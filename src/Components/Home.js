@@ -25,7 +25,7 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="">
       <main className="bg-red-light rounded-3xl px-0 mx-2 sm:mx-7 sm:px-8">
         <div className="grid max-w-screen-xl px-3 py-4 sm:py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-2 lg:grid-cols-12">
           <div className="place-self-center lg:col-span-7 xl:place-self-center xl:col-span-6 xl:mr-44 2xl:mr-48">
@@ -360,9 +360,9 @@ function Home() {
       <div className="mt-8">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="min-w-0 flex-1">
-          <h1 className="mx-5 flex px-5 py-5 text-4xl font-bold text-gray-800 md:mx-20 md:px-10 lg:mx-0 lg:px-20">
-            Our Customer Review
-          </h1>
+            <h1 className="mx-5 flex px-5 py-5 text-4xl font-bold text-gray-800 md:mx-20 md:px-10 lg:mx-0 lg:px-20">
+              Our Customer Review
+            </h1>
           </div>
           <div className="mt-5 flex lg:ml-4 lg:mt-0">
             <span className="sm:ml-3 mr-20">
@@ -410,6 +410,25 @@ function Home() {
               </>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* APP SECTION */}
+      <div className="relative mt-12 mb-96 ml-48 mr-48 p-5 bg-white border-2 border-red-500 rounded-3xl shadow-lg">
+        <div className="w-1/2 ml-12">
+          <h2 className="text-lg font-bold mt-10 text-red-500">Download App</h2>
+          <h2 className="text-4xl font-bold">Get Started With<br /> Tastebud Today!</h2>
+          <p className="mt-4 text-gray-500 font-medium">I recently had the pleasure of dining at a new <br />
+            restaurant in New York City and I was blown<br/>
+            away by the food.
+          </p>
+
+          <button type="button" className="inline-flex items-center rounded-lg bg-red-custom px-5 py-2 w-36 mt-4 mb-10 text-lg font-normal text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
+            Get the App
+          </button>
+        </div>
+        <div className="absolute top-1/4 right-4 w-2/6 h-152 mr-20 bg-white border-2 border-red-500 rounded-xl shadow-lg">
+          {/* Tab Content goes here */}
         </div>
       </div>
 
