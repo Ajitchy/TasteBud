@@ -73,7 +73,7 @@ function Home() {
       </main>
 
       {/* CARD SECTION */}
-      <section className="grid grid-cols-2 gap-2 mt-6 mx-auto sm:max-w-sm sm:w-full lg:max-w-full md:justify-center md:flex md:-mt-14 justify-items-center">
+      <section className="grid grid-cols-2 gap-2 mt-6 mx-auto sm:max-w-sm sm:w-full lg:max-w-full md:justify-center lg:flex md:-mt-14 justify-items-center">
         <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-md w-32 h-28 mb-4 p-2 items-center md:w-full md:mb-0 lg:w-52 border-2 border-red-600 overflow-hidden">
           <img className="text-gray-500 w-12 h-12 m-3"
             src={FastDelivery}
@@ -145,7 +145,7 @@ function Home() {
             className="flex overflow-x-scroll pb-10 hide-scroll-bar grid-cols-2 lg:grid-cols-4 gap-4 justify-center"
           >
             <div
-              className="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 "
+              className="flex flex-nowrap overflow-x-scroll hide-scroll-bar pl-5 pr-5 md:pr-10 lg:pr-20"
             >
 
               <div className="inline-block px-3">
