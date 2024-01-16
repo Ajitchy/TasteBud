@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Man1 from '../Images/Man1.jpg';
 import Woman1 from '../Images/Woman1.jpg';
 import Man2 from '../Images/Man2.jpg';
@@ -8,7 +8,6 @@ import FastDelivery from '../Images/fast-delivery.png';
 import COD from '../Images/cash-on-delivery.png';
 import home from '../Images/home.png';
 import shipped from '../Images/shipped.png';
-import Burger from '../Images/Burger.jpg';
 import Star from './Star';
 
 
@@ -23,6 +22,19 @@ function Home() {
     { name: "Sana khan", image: Woman2, designation: 'Musician', workplace: 'T-series', review: "Excellent food. Menu is extensive and seasonal to a particularly high standard. Definitely fine dining. It can be expensive but worth it and they do different deals on different nights so it’s worth checking them out before you book. Highly recommended." },
 
   ];
+
+  const [Categories, setCategories] = useState([]);
+  const [foods, setFoods] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/menu')
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data);
+        const foods = data.flatMap(category => category.foods);
+        setFoods(foods);
+      })
+  }, []);
 
   return (
     <div className="">
@@ -141,117 +153,25 @@ function Home() {
               View All
             </button>
           </span>
-          <div
-            className="flex overflow-x-scroll pb-10 hide-scroll-bar grid-cols-2 lg:grid-cols-4 gap-4 justify-center"
-          >
-            <div
-              className="flex flex-nowrap overflow-x-scroll hide-scroll-bar pl-5 pr-5 md:pr-10 lg:pr-20"
-            >
-
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
+          <div className="flex overflow-x-scroll pb-10 hide-scroll-bar grid-cols-2 lg:grid-cols-4 gap-4 justify-center">
+            <div className="flex flex-nowrap overflow-x-scroll hide-scroll-bar pl-5 pr-5 md:pr-10 lg:pr-20">
+              {Categories.map((category, index) => (
+                <div key={index} className="inline-block px-3">
+                  <div
+                    className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                  >
+                    <span className="bg-white w-12 h-12 mr-6 rounded-xl">
+                      <img
+                        className="w-8 h-8 m-2"
+                        src={category.image}
+                        alt={category.category}
+                      />
+                    </span>
+                    <p className="text-xl font-semibold text-gray-500">{category.category}</p>
+                  </div>
                 </div>
-              </div>
+              ))}
 
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
-                </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
-                </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
-                </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
-                </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
-                </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div
-                  className="flex flex-row w-48 h-20 max-w-xs overflow-hidden rounded-lg shadow-md border-2 border-red-500 items-center justify-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  <span className="bg-white w-12 h-12 mr-6 rounded-xl">
-                    <img
-                      className="w-8 h-8 m-2"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <p className="text-xl font-semibold text-gray-500">Burger</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -274,81 +194,32 @@ function Home() {
           </div>
           <div className="hide-scroll-bar flex overflow-x-scroll pb-10">
             <div className="ml-10 flex flex-nowrap md:ml-20 lg:ml-40">
-              <div className="inline-block px-3">
-                <div className="flex flex-col w-80 max-w-xs overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-xl border-2 border-red-500 m-4 p-5 items-center justify-center">
-                  <span className="bg-white w-64 h-56 m-3 rounded-xl border-2 border-red-custom">
-                    <img
-                      className="w-52 h-44 items-center justify-center m-4"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <span className="flex flex-row justify-between w-full">
-                    <h2 className="text-xl font-bold text-black">Burger</h2>
-                    <h2 className="text-xl font-bold">Rs 50</h2>
-                  </span>
-                  <p className="p-2">Lorem ipsum dolor sit amet, conse adipisicing slit.</p>
-                  <span className="flex flex-col justify-between w-full">
-                    <button className="bg-red-custom hover:bg-red-400 text-white font semibold py-2 px-6 m-1 inline-flexrounded-xl w-36">
-                      Add to Cart
-                    </button>
-                    <div className="flex justify-end -mt-6">
-                      <Star stars={stars} />
-                    </div>
-                  </span>
+              {foods.map((foods, index) => (
+                <div key={index} className="inline-block px-3">
+                  <div className="flex flex-col w-80 max-w-xs overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-xl border-2 border-red-500 m-4 p-5 items-center justify-center">
+                    <span className="bg-white w-64 h-56 m-3 rounded-xl border-2 border-red-custom">
+                      <img
+                        className="w-52 h-44 items-center justify-center m-4"
+                        src={foods.image}
+                        alt={foods.name}
+                      />
+                    </span>
+                    <span className="flex flex-row justify-between w-full">
+                      <h2 className="text-xl font-bold text-black">{foods.name}</h2>
+                      <h2 className="text-xl font-bold">Rs {foods.price}</h2>
+                    </span>
+                    <p className="p-2">{foods.description}</p>
+                    <span className="flex flex-col justify-between w-full">
+                      <button className="bg-red-custom hover:bg-red-400 text-white font semibold py-2 px-6 m-1 inline-flexrounded-xl w-36">
+                        Add to Cart
+                      </button>
+                      <div className="flex justify-end -mt-6">
+                        <Star stars={stars} />
+                      </div>
+                    </span>
+                  </div>
                 </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div className="flex flex-col w-80 max-w-xs overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-xl border-2 border-red-500 m-4 p-5 items-center justify-center">
-                  <span className="bg-white w-64 h-56 m-3 rounded-xl border-2 border-red-custom">
-                    <img
-                      className="w-52 h-44 items-center justify-center m-4"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <span className="flex flex-row justify-between w-full">
-                    <h2 className="text-xl font-bold text-black">Burger</h2>
-                    <h2 className="text-xl font-bold">Rs 50</h2>
-                  </span>
-                  <p className="p-2">Lorem ipsum dolor sit amet, conse adipisicing slit.</p>
-                  <span className="flex flex-col justify-between w-full">
-                    <button className="bg-red-custom hover:bg-red-400 text-white font semibold py-2 px-6 m-1 inline-flexrounded-xl w-36">
-                      Add to Cart
-                    </button>
-                    <div className="flex justify-end -mt-6">
-                      <Star stars={stars} />
-                    </div>
-                  </span>
-                </div>
-              </div>
-
-              <div className="inline-block px-3">
-                <div className="flex flex-col w-80 max-w-xs overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-xl border-2 border-red-500 m-4 p-5 items-center justify-center">
-                  <span className="bg-white w-64 h-56 m-3 rounded-xl border-2 border-red-custom">
-                    <img
-                      className="w-52 h-44 items-center justify-center m-4"
-                      src={Burger}
-                      alt="burger"
-                    />
-                  </span>
-                  <span className="flex flex-row justify-between w-full">
-                    <h2 className="text-xl font-bold text-black">Burger</h2>
-                    <h2 className="text-xl font-bold">Rs 50</h2>
-                  </span>
-                  <p className="p-2">Lorem ipsum dolor sit amet, conse adipisicing slit.</p>
-                  <span className="flex flex-col justify-between w-full">
-                    <button className="bg-red-custom hover:bg-red-400 text-white font semibold py-2 px-6 m-1 inline-flexrounded-xl w-36">
-                      Add to Cart
-                    </button>
-                    <div className="flex justify-end -mt-6">
-                      <Star stars={stars} />
-                    </div>
-                  </span>
-                </div>
-              </div>
-
+              ))}
             </div>
           </div>
         </div>
@@ -419,7 +290,7 @@ function Home() {
           <h2 className="text-lg font-bold mt-10 text-red-500">Download App</h2>
           <h2 className="text-4xl font-bold">Get Started With<br /> Tastebud Today!</h2>
           <p className="mt-4 text-gray-500 font-medium">I recently had the pleasure of dining at a new <br />
-            restaurant in New York City and I was blown<br/>
+            restaurant in New York City and I was blown<br />
             away by the food.
           </p>
 

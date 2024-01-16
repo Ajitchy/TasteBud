@@ -2,14 +2,14 @@
     "menu": [
         {
             "category": "Beverages",
-            "image": "src/Images/Burger.jpg",
+            "image": "images/Burger.jpg",
             "foods": [
                 {
                     "foodId": 1,
                     "name": "Coffee",
-                    "image": "src/Images/Burger.jpg",
+                    "image": "images/Burger.jpg",
                     "description": "Hot brewed coffee",
-                    "price": "Rs3",
+                    "price": "3",
                     "reviews": [
                         {
                             "userId": 1,
@@ -26,9 +26,9 @@
                 {
                     "foodId": 2,
                     "name": "Tea",
-                    "image": "src/Images/Burger.jpg",
+                    "image": "images/Burger.jpg",
                     "description": "A nice cup of tea",
-                    "price": "Rs2",
+                    "price": "2",
                     "reviews": [
                         {
                             "userId": 3,
@@ -46,14 +46,14 @@
         },
         {
             "category": "Desserts",
-            "image": "src/Images/Burger.jpg",
+            "image": "images/Burger.jpg",
             "foods": [
                 {
                     "foodId": 1,
                     "name": "Cheesecake",
-                    "image": "src/Images/Burger.jpg",
+                    "image": "images/Burger.jpg",
                     "description": "A rich and creamy cheesecake.",
-                    "price": "Rs8",
+                    "price": "8",
                     "reviews": [
                         {
                             "userId": 5,
@@ -95,22 +95,22 @@
                     "quantity": "1"
                 }
             ],
-            "orders": [
+            "orde": [
                 {
                     "orderId": 1,
-                    "totalAmount": "Rs15.00",
+                    "totalAmount": "15.00",
                     "orderedOn": "2021-01-01",
                     "items": [
                         {
                             "foodId": 1,
                             "name": "Veg Burger",
-                            "price": "Rs5.00",
+                            "price": "5.00",
                             "quantity": "1"
                         },
                         {
                             "foodId": 2,
                             "name": "Chicken Biryani",
-                            "price": "Rs10.00",
+                            "price": "10.00",
                             "quantity": "2"
                         }
                     ]
