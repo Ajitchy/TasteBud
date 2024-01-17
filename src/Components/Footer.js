@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col">
     <footer className="bg-base-200 text-base-content px-4 bg-[#FFF0F1] py-16 mt-auto">
       <div className="flex flex-col items center md:items-start">
         <div className="h-px mx-auto rounded-full md:hidden mt-7 w-11">
