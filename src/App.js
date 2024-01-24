@@ -8,6 +8,7 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import PageNotFound from './Components/PageNotFound';
+import Profile from './Components/Profile';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/signup" element={<SignUp/>}/>
         <Route exact path="*" element={<PageNotFound/>}/>
+        <Route exact path="/profile" element={<Profile/>}/>
       </Routes>
       <Footer/>
 
