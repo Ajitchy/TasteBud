@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import TastebudLogo from '../Images/TasteBudLogo.png'
 import ProfileIcon from '../Images/ProfileIcon.jpg';
 import { ChevronFirst, MoreVertical } from 'lucide-react';
 
 
-export default function Sidebar({children}) {
+export default function Sidebar({ children }) {
     return (
         <div className="flex">
             <aside className="h-screen w-64">
@@ -36,16 +37,21 @@ export default function Sidebar({children}) {
     )
 }
 
-export function SidebarItem({ text, icon, active, alert }) {
+export function SidebarItem({ text, icon, active, alert, onClick, to }) {
     return (
-        <li className={`relative flex items-center p-3 my-1 font-medium
+        <Link to={to} style={{ textDecoration: "none", color: "inherit" }}>
+            <li onClick={onClick} className={`relative flex items-center p-3 my-1 font-medium
                         rounded-md cursor-pointer transition-colors
                         ${active ? "bg-gradient-to-tr from-red-200 to-red-100 text-red-700"
-                : "text-gray-600 hover:bg-red-50"
-            }`}>
-            {icon}
-            <span className="w-52 ml-3">{text}</span>
-            {alert && <span className="absolute right-2 w-2 h-2 rounded-full bg-red-500" />}
-        </li>
+                    : "text-gray-600 hover:bg-red-50"
+                }`}>
+                {/* Link component from react-router-dom comes with its own style that can override your css. To prevent this you can pass your css classes directly to the Link or clear the styles of the Link component */}
+
+                {icon}
+                <span className="w-52 ml-3">{text}</span>
+                {alert && <span className="absolute right-2 w-2 h-2 rounded-full bg-red-500" />}
+            </li >
+        </Link>
+
     )
 }
