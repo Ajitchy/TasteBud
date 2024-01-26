@@ -18,22 +18,23 @@ export default function WithSidebar(Component) {
 
         return (
             <div className="flex">
-                <Component {...props} />
-                    <Sidebar>
-                        {SidebarItems.map((item, index) => (
-                            <SidebarItem
-                                key={index}
-                                icon={item.icon}
-                                text={item.text}
-                                alert={item.alert}
-                                active={item.text === activeItem}
-                                to={item.to}
-                                onClick={() => setActiveItem(item.text)}
-                            />
-
-                        ))}
-                    </Sidebar>
                 
+                <Sidebar>
+                    {SidebarItems.map((item, index) => (
+                        <SidebarItem
+                            key={index}
+                            icon={item.icon}
+                            text={item.text}
+                            alert={item.alert}
+                            active={item.text === activeItem}
+                            to={item.to}
+                            onClick={() => setActiveItem(item.text)}
+                        />
+
+                    ))}
+                </Sidebar>
+                <Component {...props} />
+
             </div>
         )
     };

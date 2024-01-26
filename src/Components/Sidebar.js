@@ -7,7 +7,7 @@ import { ChevronFirst, MoreVertical } from 'lucide-react';
 
 export default function Sidebar({ children }) {
     return (
-        <div className="flex">
+        <div className="flex flex-col">
             <aside className="h-screen w-64">
                 <nav className="h-full flex flex-col bg-lavenderblush-custom border-r shadow-sm">
                     <div className="p-4 pb-2 flex justify-between items-center">
@@ -32,6 +32,7 @@ export default function Sidebar({ children }) {
                     </div>
                 </nav>
             </aside>
+            
 
         </div>
     )
