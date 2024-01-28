@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import { Menu, Transition } from '@headlessui/react'
-import { BellIcon, Cog8ToothIcon } from '@heroicons/react/24/outline'
+import { BellIcon, Cog8ToothIcon } from '@heroicons/react/24/outline';
+import Man1 from '../Images/Man1.jpg';
 
 const navigation = [
   { name: 'Profile', href: '#', current: true },
@@ -13,7 +14,7 @@ function classNames(...classes) {
 export default function SidebarNav() {
   return (
     <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 mt-4 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className=" sm:ml-6 sm:block">
@@ -23,8 +24,8 @@ export default function SidebarNav() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current ? 'text-gray' : 'text-gray-700',
+                          'rounded-md px-3 py-2 text-3xl font-bold'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -37,15 +38,15 @@ export default function SidebarNav() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full p-1 text-gray-800 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
+                  <span className="sr-only">View Settings</span>
                   <Cog8ToothIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full p-1 text-gray-800 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -60,7 +61,7 @@ export default function SidebarNav() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src={Man1}                        
                         alt=""
                       />
                     </Menu.Button>

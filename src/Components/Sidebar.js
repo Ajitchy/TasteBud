@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TastebudLogo from '../Images/TasteBudLogo.png'
 import ProfileIcon from '../Images/ProfileIcon.jpg';
-import { ChevronFirst, MoreVertical } from 'lucide-react';
+import { ChevronFirst, ChevronLast, MoreVertical } from 'lucide-react';
 
+const SidebarContext = createContext();
 
 export default function Sidebar({ children }) {
+    const [isOpen, setIsOpen] = useState(true);
     return (
         <div className="flex flex-col">
-            <aside className="h-screen w-64">
+            <aside className={`h-screen ${isOpen ? "fixed z-10 sm:static sm:w-52" : ""}`}>
                 <nav className="h-full flex flex-col bg-lavenderblush-custom border-r shadow-sm">
                     <div className="p-4 pb-2 flex justify-between items-center">
-                        <img src={TastebudLogo} className="w-32" alt="logo" />
+                        <img src={TastebudLogo} className={`overflow-hidden transition-all ${isOpen ? "w-32" : "w-0"}`} alt="logo" />
 
-                        <button className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-500">
-                            <ChevronFirst />
+                        <button onClick={()=>setIsOpen(curr =>!curr)} className="p-1.5 rounded-lg bg-gray-50 hover:bg-red-500">
+                            {isOpen ?<ChevronFirst /> : <ChevronLast/>}
                         </button>
                     </div>
-
+                    
+                    <SidebarContext.Provider value={{isOpen}}>
                     <ul className="flex-1 px-3">{children}</ul>
+                    </SidebarContext.Provider>
 
                     <div className="border-t flex p-3">
                         <img src={ProfileIcon} className="w-10 h-10 rounded-md" alt="profile icon" />
-                        <div className="flex justify-between items-center w-52 ml-3">
+                        <div className={`flex justify-between items-center overflow-hidden transition-all ${isOpen ? "w-52 ml-3" : "w-0"}`}>
                             <div className="leading-4">
                                 <h4 className="font-semibold">Ajit Chaudhary</h4>
                                 <span className="text-xs text-gray-600">Ajit@tastebud.com</span>
@@ -39,6 +43,7 @@ export default function Sidebar({ children }) {
 }
 
 export function SidebarItem({ text, icon, active, alert, onClick, to }) {
+    const {isOpen} = useContext(SidebarContext)
     return (
         <Link to={to} style={{ textDecoration: "none", color: "inherit" }}>
             <li onClick={onClick} className={`relative flex items-center p-3 my-1 font-medium
@@ -49,8 +54,8 @@ export function SidebarItem({ text, icon, active, alert, onClick, to }) {
                 {/* Link component from react-router-dom comes with its own style that can override your css. To prevent this you can pass your css classes directly to the Link or clear the styles of the Link component */}
 
                 {icon}
-                <span className="w-52 ml-3">{text}</span>
-                {alert && <span className="absolute right-2 w-2 h-2 rounded-full bg-red-500" />}
+                <span className={`overflow-hidden transition-all ${isOpen ? "w-52 ml-3" : "w-0"}`}>{text}</span>
+                {alert && <span className={`absolute right-2 w-2 h-2 rounded-full bg-red-500 ${isOpen ? "" : "top-2"}`} />}
             </li >
         </Link>
 
