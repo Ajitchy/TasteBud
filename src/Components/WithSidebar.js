@@ -7,7 +7,7 @@ export default function WithSidebar(Component) {
     return function WrappedComponent(props) {
         const [activeItem, setActiveItem] = useState("Orders");
         const SidebarItems = [
-            { text: "Dashboard", icon: <LayoutDashboard size={20} />, to: "/", alert: true },
+            { text: "Dashboard", icon: <LayoutDashboard size={20} />, to: "/dashboard", alert: true },
             { text: "Orders", icon: <Package size={20} />, to: "/orders" },
             { text: "Billings", icon: <Receipt size={20} />, to: "/billings" },
             { text: "User", icon: <UserCircle size={20} />, to: "/user" },

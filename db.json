@@ -122,7 +122,9 @@
       "name": "Prashant",
       "mobileNumber": "1287654320",
       "email": "d@g.com",
-      "password": "sxhsvxhjshj"
+      "password": "sxhsvxhjshj",
+      "address": "Mumbai",
+      "profileImage":"Profile_Pic.png"
     }
   ]
 }

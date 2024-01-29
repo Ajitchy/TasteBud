@@ -10,14 +10,18 @@ import SignUp from './Components/SignUp';
 import PageNotFound from './Components/PageNotFound';
 import Profile from './Components/Profile';
 import Orders from './Components/Orders';
+import Dashboard from './Components/Dashboard';
 import WithSidebar from './Components/WithSidebar';
 import WithHeaderFooter from './Components/WithHeaderFooter';
 
 
 function App() {
+  //with sidebar
   const ProfilePage = WithSidebar(Profile);
+  const OrderPage = WithSidebar(Orders);
+  const DashboardPage = WithSidebar(Dashboard);
    
-  //Header Footer
+  //with Header Footer
   const HomePage = WithHeaderFooter(Home);
   const LoginPage = WithHeaderFooter(Login);
   const SignUpPage = WithHeaderFooter(SignUp);
@@ -30,7 +34,8 @@ function App() {
         <Route exact path="/signup" element={<SignUpPage />} />
         <Route exact path="*" element={<PageNotFound />} />
         <Route exact path="/profile" element={<ProfilePage />} />
-        <Route exact path="/orders" element={<Orders />} />
+        <Route exact path="/orders" element={<OrderPage/>} />
+        <Route exact path="/dashboard" element={<DashboardPage/>} />
       </Routes>
 
     </Router>

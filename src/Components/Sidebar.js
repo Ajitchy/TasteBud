@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TastebudLogo from '../Images/TasteBudLogo.png'
-import ProfileIcon from '../Images/ProfileIcon.jpg';
+//import ProfileIcon from '../Images/ProfileIcon.jpg';
+import Man1 from '../Images/Man1.jpg';
 import { ChevronFirst, ChevronLast, MoreVertical } from 'lucide-react';
 
 const SidebarContext = createContext();
@@ -9,8 +10,8 @@ const SidebarContext = createContext();
 export default function Sidebar({ children }) {
     const [isOpen, setIsOpen] = useState(true);
     return (
-        <div className="flex flex-col">
-            <aside className={`h-screen ${isOpen ? "fixed z-10 sm:static sm:w-52" : ""}`}>
+        <div className="flex">
+            <aside className={`h-screen fixed z-10 ${isOpen ? " sm:static" : ""}`}>
                 <nav className="h-full flex flex-col bg-lavenderblush-custom border-r shadow-sm">
                     <div className="p-4 pb-2 flex justify-between items-center">
                         <img src={TastebudLogo} className={`overflow-hidden transition-all ${isOpen ? "w-32" : "w-0"}`} alt="logo" />
@@ -25,7 +26,7 @@ export default function Sidebar({ children }) {
                     </SidebarContext.Provider>
 
                     <div className="border-t flex p-3">
-                        <img src={ProfileIcon} className="w-10 h-10 rounded-md" alt="profile icon" />
+                        <img src={Man1} className="w-10 h-10 rounded-md" alt="profile icon" />
                         <div className={`flex justify-between items-center overflow-hidden transition-all ${isOpen ? "w-52 ml-3" : "w-0"}`}>
                             <div className="leading-4">
                                 <h4 className="font-semibold">Ajit Chaudhary</h4>

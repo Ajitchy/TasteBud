@@ -29,7 +29,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Header() {
+export default function Header(user) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const notifications = useState(true);
   const navigate = useNavigate();
@@ -126,9 +126,16 @@ export default function Header() {
               <span className="absolute top-0 right-0 h-2 w-2 bg-red-custom rounded-full"></span>
             )}
           </button>
+
+          { user && user.profileImage ?(
+            <Link to="/dashboard">
+              <img src={user.profileImage} alt=''  className="w-10 h-10 rounded-full"/>
+            </Link>
+          ):(
           <button onClick={() => navigate('/login')} className="bg-red-custom hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             Log In
           </button>
+          )}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -207,11 +214,16 @@ export default function Header() {
                 )}
               </button>
               <div className="py-6">
-                <button onClick={() => navigate('/login')}
+                {user  && user.profileImage ? (
+                  <Link to="/dashboard">
+                    <img src={user.profileImage} alt='' className="w-10 h-10 rounded-full"/>
+                  </Link>
+                ):(
+                  <button onClick={() => navigate('/login')}
                   className="bg-red-custom hover:bg-red-700 text-white font-semibold py-2.5 px-3 block rounded-lg -mx-3"
                 >
                   Log In
-                </button>
+                </button>)}
               </div>
             </div>
           </div>
