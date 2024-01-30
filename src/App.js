@@ -13,6 +13,8 @@ import Orders from './Components/Orders';
 import Dashboard from './Components/Dashboard';
 import WithSidebar from './Components/WithSidebar';
 import WithHeaderFooter from './Components/WithHeaderFooter';
+import { Provider } from 'react-redux';
+import Store from './Redux/Store';
 
 
 function App() {
@@ -20,25 +22,27 @@ function App() {
   const ProfilePage = WithSidebar(Profile);
   const OrderPage = WithSidebar(Orders);
   const DashboardPage = WithSidebar(Dashboard);
-   
+
   //with Header Footer
   const HomePage = WithHeaderFooter(Home);
   const LoginPage = WithHeaderFooter(Login);
   const SignUpPage = WithHeaderFooter(SignUp);
   return (
-    <Router>
-      <ToastContainer />
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/signup" element={<SignUpPage />} />
-        <Route exact path="*" element={<PageNotFound />} />
-        <Route exact path="/profile" element={<ProfilePage />} />
-        <Route exact path="/orders" element={<OrderPage/>} />
-        <Route exact path="/dashboard" element={<DashboardPage/>} />
-      </Routes>
+    <Provider store={Store}>
+      <Router>
+        <ToastContainer />
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/signup" element={<SignUpPage />} />
+          <Route exact path="*" element={<PageNotFound />} />
+          <Route exact path="/profile" element={<ProfilePage />} />
+          <Route exact path="/orders" element={<OrderPage />} />
+          <Route exact path="/dashboard" element={<DashboardPage />} />
+        </Routes>
 
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 

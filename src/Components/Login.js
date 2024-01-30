@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+//redux
+import  {useDispatch} from  "react-redux";
+import {setUser} from '../Redux/Slices/userSlice';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -8,6 +11,9 @@ export default function Login() {
   const [validationErrors, setValidationErrors] = useState({email:'', password:''});
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
+  //redux 
+  const dispatch = useDispatch();
 
   const validateForm = () => {
     const errors = {};
@@ -35,6 +41,7 @@ export default function Login() {
           if(response[0].password === password){
             toast.success('Login Successful');
             navigate('/')
+            dispatch(setUser(response[0])); //redux
           }else{
             toast.error('Invalid email or password');
           }

@@ -84,7 +84,7 @@
       "state": "Uttar Pradesh",
       "country": "India",
       "address": "123 Main St.\nAnytown, USA\n12,345",
-      "profileImage": "Profile_Pic.png",
+      "profileImage": "images/Burger.jpg",
       "cart": [
         {
           "foodId": 1,
@@ -124,7 +124,7 @@
       "email": "d@g.com",
       "password": "sxhsvxhjshj",
       "address": "Mumbai",
-      "profileImage":"Profile_Pic.png"
+      "profileImage":"images/TasteBudLogo.png"
     }
   ]
 }

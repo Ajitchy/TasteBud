@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState } from 'react';
+import { useSelector } from 'react-redux'; //redux
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -29,10 +30,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Header(user) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const notifications = useState(true);
   const navigate = useNavigate();
+
+  //redux
+  const user = useSelector((state) => state.user)
 
   return (
     <header className="bg-lavenderblush-custom">
