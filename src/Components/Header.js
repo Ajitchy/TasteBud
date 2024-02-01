@@ -48,14 +48,20 @@ export default function Header() {
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
+          {user && user.email ? (
+            <Link to="/dashboard">
+              <img src={user.profileImage} alt='Profile img' className="rounded-full w-10 h-10" />
+            </Link>
+
+          ) : (
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>)}
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
@@ -131,14 +137,14 @@ export default function Header() {
             )}
           </button>
 
-          { user && user.profileImage ?(
+          {user && user.profileImage ? (
             <Link to="/dashboard">
-              <img src={user.profileImage} alt=''  className="w-10 h-10 rounded-full"/>
+              <img src={user.profileImage} alt='' className="w-10 h-10 rounded-full" />
             </Link>
-          ):(
-          <button onClick={() => navigate('/login')} className="bg-red-custom hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Log In
-          </button>
+          ) : (
+            <button onClick={() => navigate('/login')} className="bg-red-custom hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+              Log In
+            </button>
           )}
         </div>
       </nav>
@@ -218,16 +224,11 @@ export default function Header() {
                 )}
               </button>
               <div className="py-6">
-                {user  && user.profileImage ? (
-                  <Link to="/dashboard">
-                    <img src={user.profileImage} alt='' className="w-10 h-10 rounded-full"/>
-                  </Link>
-                ):(
-                  <button onClick={() => navigate('/login')}
+                <button onClick={() => navigate('/login')}
                   className="bg-red-custom hover:bg-red-700 text-white font-semibold py-2.5 px-3 block rounded-lg -mx-3"
                 >
                   Log In
-                </button>)}
+                </button>
               </div>
             </div>
           </div>
