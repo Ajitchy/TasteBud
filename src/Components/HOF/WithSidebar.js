@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Sidebar, { SidebarItem } from './Sidebar';
+import Sidebar, { SidebarItem } from '../Sidebar';
 import { LayoutDashboard, LifeBuoy, LogOut, Package, Receipt, Settings, UserCircle } from 'lucide-react';
 //redux
 import { useDispatch } from 'react-redux';
-import { logout } from '../Redux/Slices/userSlice';
+import { logout } from '../../Redux/Slices/userSlice';
 
 export default function WithSidebar(Component) {
     return function WrappedComponent(props) {
