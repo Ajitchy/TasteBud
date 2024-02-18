@@ -8,9 +8,9 @@ import { ChevronFirst, ChevronLast, MoreVertical } from 'lucide-react';
 const SidebarContext = createContext();
 
 export default function Sidebar({ children }) {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="flex">
+        <div className="flex flex-grow">
             <aside className={`h-screen fixed z-10 ${isOpen ? " sm:static" : ""}`}>
                 <nav className="h-full flex flex-col bg-lavenderblush-custom border-r shadow-sm">
                     <div className="p-4 pb-2 flex justify-between items-center">
