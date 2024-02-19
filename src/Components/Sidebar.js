@@ -1,22 +1,30 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import TastebudLogo from '../Images/TasteBudLogo.png'
 //import ProfileIcon from '../Images/ProfileIcon.jpg';
 import Man1 from '../Images/Man1.jpg';
 import { ChevronFirst, ChevronLast, MoreVertical } from 'lucide-react';
+//redux
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleIsOpen } from '../Redux/Slices/isOpenSlice'; //import the action
 
 const SidebarContext = createContext();
 
-export default function Sidebar({ children }) {
-    const [isOpen, setIsOpen] = useState(false);
+export default function Sidebar({ children}) {
+    const isOpen = useSelector((state) => state.isOpen);
+    const  dispatch = useDispatch(); //get dispatch function from  redux to call actions
     return (
         <div className="flex flex-grow">
-            <aside className={`h-screen fixed z-10 ${isOpen ? " sm:static" : ""}`}>
+            {/* sidebar hase Z-20 and sidebarNav has Z-10 so sidebar will show above sidebarNav because 
+                z-index property specifies the stack order of the element. An element with greater stack
+                order is always in front of an element with lower stack order
+            */}
+            <aside className={`h-screen fixed z-20 ${isOpen ? "w-52" : ""} ${isOpen ? "block" : "hidden"} lg:block`}>
                 <nav className="h-full flex flex-col bg-lavenderblush-custom border-r shadow-sm">
                     <div className="p-4 pb-2 flex justify-between items-center">
                         <img src={TastebudLogo} className={`overflow-hidden transition-all ${isOpen ? "w-32" : "w-0"}`} alt="logo" />
 
-                        <button onClick={()=>setIsOpen(curr =>!curr)} className="p-1.5 rounded-lg bg-gray-50 hover:bg-red-500">
+                        <button onClick={()=> dispatch(toggleIsOpen())} className="p-1.5 rounded-lg bg-gray-50 hover:bg-red-500">
                             {isOpen ?<ChevronFirst /> : <ChevronLast/>}
                         </button>
                     </div>

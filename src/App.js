@@ -10,6 +10,9 @@ import SignUp from './Components/SignUp';
 import PageNotFound from './Components/PageNotFound';
 import Profile from './Components/Profile';
 import Orders from './Components/Orders';
+import Billings from './Components/Billings';
+import Help from './Components/Help';
+import Settings from './Components/Settings';
 import Dashboard from './Components/Dashboard';
 import WithSidebar from './Components/HOF/WithSidebar';
 import WithHeaderFooter from './Components/HOF/WithHeaderFooter';
@@ -20,9 +23,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   //with sidebar
-  const ProfilePage = WithSidebar(Profile);
-  const OrderPage = WithSidebar(Orders);
   const DashboardPage = WithSidebar(Dashboard);
+  const OrderPage = WithSidebar(Orders);
+  const ProfilePage = WithSidebar(Profile);
+  const BillingPage = WithSidebar(Billings);
+  const HelpPage = WithSidebar(Help);
+  const SettingsPage = WithSidebar(Settings);
 
   //with Header Footer
   const HomePage = WithHeaderFooter(Home);
@@ -41,6 +47,9 @@ function App() {
             <Route exact path="/profile" element={<ProfilePage />} />
             <Route exact path="/orders" element={<OrderPage />} />
             <Route exact path="/dashboard" element={<DashboardPage />} />
+            <Route exact path="/billings" element={<BillingPage/>} />
+            <Route exact path="/help" element={<HelpPage/>} />
+            <Route exact path="/settings" element={<SettingsPage />} />
           </Routes>
 
         </Router>

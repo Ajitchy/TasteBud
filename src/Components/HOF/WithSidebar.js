@@ -12,7 +12,7 @@ export default function WithSidebar(Component) {
             { text: "Dashboard", icon: <LayoutDashboard size={20} />, to: "/dashboard", alert: true },
             { text: "Orders", icon: <Package size={20} />, to: "/orders" },
             { text: "Billings", icon: <Receipt size={20} />, to: "/billings" },
-            { text: "User", icon: <UserCircle size={20} />, to: "/user" },
+            { text: "User", icon: <UserCircle size={20} />, to: "/profile" },
             { text: "Help", icon: <LifeBuoy size={20} />, to: "/help" },
             { text: "Settings", icon: <Settings size={20} />, to: "/settings" },
             { text: "Log Out", icon: <LogOut size={20} />, to:"/" }

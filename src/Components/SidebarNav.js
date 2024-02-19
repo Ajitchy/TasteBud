@@ -1,19 +1,25 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 //import { Menu, Transition } from '@headlessui/react'
 import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { SearchIcon, MessageSquareTextIcon } from 'lucide-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleIsOpen } from '../Redux/Slices/isOpenSlice'; //import the action
+
 //import Man1 from '../Images/Man1.jpg';
 
 
 export default function SidebarNav() {
+  const isOpen = useSelector(state => state.isOpen); //access the state from redux
+  const  dispatch = useDispatch(); //get access to the dispatch function from redux
+
   return (
     <>
       <div className="sticky z-10 top-0 h-16 border-b bg-white lg:py-2.5">
         <div className="px-6 flex items-center justify-between space-x-4 2xl:container">
           <h5 hidden className="text-2xl text-gray-600 font-medium lg:block">Dashboard</h5>
-          <button className="w-12 h-16 -mr-2 border-r lg:hidden">
+          {!isOpen && (<button onClick={() => dispatch(toggleIsOpen())} className="w-12 h-16 -mr-2 border-r lg:hidden">
             <Bars3Icon className="h-6 w-6 my-auto" />
-          </button>
+          </button>)}
           <div className="flex space-x-4">
             {/*<!--search bar -->*/}
             <div hidden className="md:block">

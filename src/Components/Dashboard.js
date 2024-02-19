@@ -6,9 +6,9 @@ import { MapPin, Wallet, Wallet2Icon } from 'lucide-react';
 
 export default function Dashboard() {
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col">
             <SidebarNav />
-            <div className="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+            <div className="ml-auto mb-6 lg:w-[100%] xl:w-[100%] 2xl:w-[85%]">
                 <div className="grid grid-cols-1 md:grid-cols-5 items-start px-4 xl:p-0 gap-y-4 md:gap-6">
 
                     <div className="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-4">
